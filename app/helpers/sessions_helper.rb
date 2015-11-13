@@ -19,6 +19,14 @@ module SessionsHelper
       end
 
 
+      def logged_in_user
+        unless logged_in?
+          flash[:notice] = "Please log in"
+          redirect_to login_url
+        end
+    end 
+
+
 
       # Returns true if a user is logged in, false otherwise.
       def logged_in?

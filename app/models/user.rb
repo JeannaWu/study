@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
       end
 
 
+      def feed
+                Post.all
+            end
+
+
 
 
        # Remembers a user in the database for use in persistent sessions.

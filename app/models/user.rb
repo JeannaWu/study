@@ -30,9 +30,7 @@ class User < ActiveRecord::Base
       end
 
 
-      def feed
-                Post.where("user_id = ?", id)
-           end
+      
 
 
 

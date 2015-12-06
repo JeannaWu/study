@@ -4,10 +4,7 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all.order("created_at DESC")
 		
-		if logged_in?
-            @post  = current_user.posts.build
-            @feed_items = current_user.feed
-         end
+		
 	end
 
 	def new 
@@ -20,7 +17,6 @@ class PostsController < ApplicationController
 		  flash[:success] = "Post created!"
           redirect_to @post
           else
-          @feed_items = []
           render 'new'
         end
 	end

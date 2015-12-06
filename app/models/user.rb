@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :posts
+  
 	attr_accessor :remember_token
+   has_many :posts, dependent: :destroy 
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: { in: 9..30 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -29,8 +30,8 @@ class User < ActiveRecord::Base
 
 
       def feed
-                Post.all
-            end
+                Post.where("user_id = ?", id)
+           end
 
 
 

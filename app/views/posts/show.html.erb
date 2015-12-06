@@ -1,0 +1,12 @@
+ <p1><%= @post.title%></p1>
+</br>
+  <p2><%= @post.content%></p2>
+
+</br>
+<%=link_to "Edit", edit_post_path(@post)%>
+
+<%=link_to "Home", root_path%>
+
+<%= link_to "Delete", @post, method: :delete,
+                                           data: { confirm: "You sure?" } %>
+

@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-<% if @feed_items.any? %>
-      <ol class="microposts">
-        <%= render @feed_items %>
-      </ol>
-    <% end %>
-=======
+
 <% if @feed_items%>
   <ol class="posts">
     <%= render @feed_items %>
   </ol>
   <%= will_paginate @feed_items %>
 <% end %>
->>>>>>> log-in-log-out
+

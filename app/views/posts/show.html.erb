@@ -6,7 +6,7 @@
 
  <section class="comment">
  
-  <p2>Comment count is <%= @post.comments.count%></p2>
+  <p2>Comment :(<%= @post.comments.count)%></p2>
   <% @post.comments.each do |comment| %>
      <%= comment.user %><br>
      <%= comment.comment %><br>

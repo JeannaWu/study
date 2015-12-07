@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+<<<<<<< HEAD
    def home
          if logged_in?
             @micropost  = current_user.microposts.build
@@ -6,6 +7,13 @@ class StaticPagesController < ApplicationController
          end
       end
 
+=======
+  def home
+
+  	
+         
+      end
+>>>>>>> log-in-log-out
 
   def help
   end

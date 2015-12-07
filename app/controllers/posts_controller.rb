@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :correct_user,   only: :destroy
 	def index
 		@posts = Post.all.order("created_at DESC")
-		
+		@feed_items = current_user.feed.paginate(page: params[:page])	
 		
 	end
 
@@ -17,7 +17,8 @@ class PostsController < ApplicationController
 		  flash[:success] = "Post created!"
           redirect_to @post
           else
-          render 'new'
+          	@feed_items = []
+            render 'new'
         end
 	end
 

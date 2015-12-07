@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
   
-	attr_accessor :remember_token
    has_many :posts, dependent: :destroy 
    has_many :comments, dependent: :destroy
 	before_save { self.email = email.downcase }
@@ -30,11 +30,6 @@ class User < ActiveRecord::Base
       end
 
 
-      
-
-
-
-
        # Remembers a user in the database for use in persistent sessions.
       def remember
         self.remember_token = User.new_token
@@ -52,6 +47,10 @@ class User < ActiveRecord::Base
       def forget
           update_attribute(:remember_digest, nil)
        end
+
+
+
+      
 
 
 

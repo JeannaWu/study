@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   def show
         @user = User.find(params[:id])
+        @posts = @user.posts.paginate(page: params[:page])
       end
 
       def index
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
          @user = User.new(secure_params)
            if @user.save
               remember @user
-              flash[:success] = "Welcome to the Forums App!"
+              flash[:success] = "Welcome to the Forum App!"
               redirect_to @user
             else
              render 'new' 

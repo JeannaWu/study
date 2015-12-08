@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
 
 	  before_save { self.email = email.downcase }
-	  validates :name, presence: true, length: { in: 9..30 }
+	  validates :name, presence: true, length: { in: 4..30 }
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, 
